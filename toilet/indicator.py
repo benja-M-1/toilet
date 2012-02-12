@@ -27,6 +27,7 @@ class ToiletIndicator:
         self.create_menu()
 
         self.poll()
+        gtk.main()
 
     def poll(self):
         """
@@ -132,11 +133,3 @@ class ToiletIndicator:
             logging.error(str(err))  
         finally:
             self.poll()
-
-if __name__ == "__main__":
-    toilets = {
-        'women': Toilet('Women', 'captor2', True),
-        'men':   Toilet('Men', 'captor1', True)
-    }
-    indicator = ToiletIndicator(toilets, Dataloader())
-    gtk.main()
